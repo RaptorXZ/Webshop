@@ -1,3 +1,13 @@
+# User Stories
+
+1. As a guest, I want to be able to see a list of wares, to find something I want to buy.
+2. As a guest, I want to be able to search for products by name, to find specific things to buy.
+3. As a guest, I want to be able to see how many of a specific product are left in stock, in case they run out.
+4. As a guest, I want to be able to sign in to my account, so that I can use the shopping cart.
+5. As a user, I want to be able to add products to my shopping cart, to be able to check them out later at the registry.
+6. As a user, I want to be able to change the amount of a specific product in my cart, to buy more than one.
+7. As a user, I want to be able to remove a product from my cart, if I change my mind.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

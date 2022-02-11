@@ -1,0 +1,125 @@
+.product-list {
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    background-color: rgb(104, 104, 104);
+    padding: 10px;
+}
+.product-item {
+    background-color: rgb(48, 48, 48);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    text-align: left;
+}
+.product-item span {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+button {
+    background-color: rgb(85, 173, 85);
+}
+.buy-btn {
+    width: 5em;
+}
+.greyed-out-btn {
+    background-color: grey;
+}
+.nav-wrapper {
+    display: flex;
+    justify-content: flex-end;
+}
+.search-wrapper {
+    display: flex;
+    justify-content: flex-start;
+}
+.nav-btn {
+    margin-right: 1em;
+    padding: .4rem;
+}
+.login-wrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+}
+.searchbar {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #f1f1f1;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    border: 3px solid #f1f1f1;
+    padding-top: 1em;
+}
+form label {
+    margin-left: 1em;
+    margin-right: 1em;
+}
+form p {
+    margin-left: 1em;
+    margin-top: 0;
+}
+.login-btn {
+    width: 5em;
+}
+button[type=submit] {
+    width: 5em;
+    height: 3em;
+    margin: 1em;
+}
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+.clickable:hover {
+    cursor: pointer;
+    color: rgb(201, 212, 182);
+}
+.row-spacebetween {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.remove-btn {
+    height: 2.5em;
+}
+.editcart-btn {
+    align-self: center;
+    height: 3em;
+    width: 3em;
+}
+.editcart-span :first-child {
+    margin-right: 1em;
+}
+.editcart-span :last-child {
+    margin-left: 1em;
+}
+.error-border {
+    border: 2px solid red !important;
+}
+
+@media screen and (max-width: 2000px) {
+    .product-list {
+        grid-template-columns: 25% 25% 25% 25%;
+    }
+}
+@media screen and (max-width: 960px) {
+    .product-list {
+        grid-template-columns: 33.3% 33.3% 33.3%;
+    }
+}
+@media screen and (max-width: 720px) {
+    .product-list {
+        grid-template-columns: 50% 50%;
+    }
+}
+@media screen and (max-width: 480px) {
+    .product-list {
+        grid-template-columns: 100%;
+    }
+}

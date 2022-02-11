@@ -1,0 +1,19 @@
+.App {
+  padding-top: 1em;
+  min-height: 100vh;
+  background-color: rgb(36, 36, 36);
+  color: rgb(194, 194, 194);
+}
+
+ul {
+  list-style: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+}
+
+.title {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
