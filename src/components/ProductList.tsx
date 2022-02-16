@@ -277,12 +277,12 @@ function ProductList() {
                 updateFilteredProducts(product.inCart - 1, product)
             }
             else {
-                removeProductFromCart(product)
+                clearProductFromCart(product)
             }
         }
     }
 
-    const removeProductFromCart = (product: Products) => {
+    const clearProductFromCart = (product: Products) => {
         const found = cartProducts.find(element => element.id === product.id)
         if(found) {
             const updatedCart = cartProducts.filter(element => element.id !== found.id)
@@ -309,6 +309,33 @@ function ProductList() {
             : p
         )
         setFilteredProducts(updatedList)
+    }
+
+    const calculateCartTotal = () => {
+        let total: number = 0
+        cartProducts.map(product => (
+            total = total + (product.price * product.inCart)
+        ))
+
+        return total
+    }
+
+    // This function just serves to clear the cart and change how many products are left in stock
+    // to simulate a completed purchase
+    const checkout = () => {
+        products.map(product => (
+            cartProducts.find((object) => {
+                if (object.id === product.id) {
+                    product.inStock = product.inStock - product.inCart
+                    product.inCart = 0
+                }
+            })
+        ))
+        setProducts(products)
+        saveProducts(products)
+        setFilteredProducts(products)
+        setCartProducts([])
+        saveCart([])
     }
 
     const saveCart = (cart: Products[]) => {
@@ -341,7 +368,7 @@ function ProductList() {
                             <div className="row-spacebetween">
                                 <h3>{product.name}</h3>
                                 {product.inCart > 0 ? (
-                                <button onClick={() => removeProductFromCart(product)} className="remove-btn">X</button>
+                                <button onClick={() => clearProductFromCart(product)} className="remove-btn">X</button>
                                 ) : null}
                             </div>
                             <img src={product.image} alt={product.name} height="100px" />
@@ -373,7 +400,7 @@ function ProductList() {
                         <li key={product.id} className='product-item'>
                             <div className="row-spacebetween">
                                 <h3>{product.name}</h3>
-                                <button onClick={() => removeProductFromCart(product)} className="remove-btn">X</button>
+                                <button onClick={() => clearProductFromCart(product)} className="remove-btn">X</button>
                             </div>
                             <img src={product.image} alt={product.name} height="100px" />
                             <p>{product.price * product.inCart} SEK</p>
@@ -386,6 +413,10 @@ function ProductList() {
                         </li>
                     ))}
                     </ul>
+                    <div className="checkout-wrapper">
+                        <p>Total: {calculateCartTotal()} SEK</p>
+                        {loggedIn ? <button onClick={() => checkout()}>Checkout</button> : null}
+                    </div>
                 </div>
             ) : null}
 

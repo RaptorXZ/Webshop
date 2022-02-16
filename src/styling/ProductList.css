@@ -41,6 +41,22 @@ button {
     flex-direction: column;
     padding: 16px;
 }
+.checkout-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 2em;
+    margin-right: 4em;
+}
+.checkout-wrapper * {
+    margin: 2em;
+    padding: 1em .5em;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+.checkout-wrapper button {
+    min-height: 4rem;
+}
 .searchbar {
     display: flex;
     flex-direction: column;
