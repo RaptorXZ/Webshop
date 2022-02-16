@@ -224,7 +224,6 @@ function ProductList() {
                 ? { ...p, inCart: product.inCart + 1}
                 : p
             )
-            setCartProducts(updatedCart)
             saveCart(updatedCart)
         }
         // If the product is not in the cart, add it
@@ -248,7 +247,6 @@ function ProductList() {
             : p
         )
         
-        setProducts(updatedList)
         saveProducts(updatedList)
         updateFilteredProducts(product.inCart + 1, product)
     }
@@ -262,7 +260,6 @@ function ProductList() {
                       ? { ...p, inCart: found.inCart - 1 }
                       : p
                   )
-                setCartProducts(updatedCart)
                 saveCart(updatedCart)
 
                 // Update the product in the product list as well
@@ -272,7 +269,6 @@ function ProductList() {
                     : p
                 )
                 
-                setProducts(updatedList)
                 saveProducts(updatedList)
                 updateFilteredProducts(product.inCart - 1, product)
             }
@@ -286,7 +282,6 @@ function ProductList() {
         const found = cartProducts.find(element => element.id === product.id)
         if(found) {
             const updatedCart = cartProducts.filter(element => element.id !== found.id)
-            setCartProducts(updatedCart)
             saveCart(updatedCart)
 
             // Update the product in the product list as well
@@ -296,7 +291,6 @@ function ProductList() {
                 : p
             )
             
-            setProducts(updatedList)
             saveProducts(updatedList)
             updateFilteredProducts(0, product)
         }
@@ -331,17 +325,17 @@ function ProductList() {
                 }
             })
         ))
-        setProducts(products)
         saveProducts(products)
         setFilteredProducts(products)
-        setCartProducts([])
         saveCart([])
     }
 
     const saveCart = (cart: Products[]) => {
+        setCartProducts(cart)
         localStorage.setItem('cart', JSON.stringify(cart))
     }
     const saveProducts = (items: Products[]) => {
+        setProducts(items)
         localStorage.setItem('products', JSON.stringify(items))
     }
 
@@ -414,6 +408,11 @@ function ProductList() {
                     ))}
                     </ul>
                     <div className="checkout-wrapper">
+                        {cartProducts.length === 0 ? <p>
+                            Your cart is empty!<br></br>Go to products and add something?
+                        </p> : null}
+                        {loggedIn ? <p>You are signed in as David.<br></br>Billing address: Pusterviksgatan 3.</p>
+                        : <p>You need to sign in to check out your wares, but you can still fill your cart!</p>}
                         <p>Total: {calculateCartTotal()} SEK</p>
                         {loggedIn ? <button onClick={() => checkout()}>Checkout</button> : null}
                     </div>

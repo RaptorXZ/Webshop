@@ -43,9 +43,10 @@ button {
 }
 .checkout-wrapper {
     display: flex;
-    justify-content: flex-end;
-    margin-top: 2em;
-    margin-right: 4em;
+    justify-content: space-evenly;
+    margin: 2em 1.75em 2em 1.75em;
+    border: 2px solid white;
+    align-items: center;
 }
 .checkout-wrapper * {
     margin: 2em;
@@ -132,6 +133,10 @@ input[type=text], input[type=password] {
 @media screen and (max-width: 720px) {
     .product-list {
         grid-template-columns: 50% 50%;
+    }
+    .checkout-wrapper {
+        display: flex;
+        flex-direction: column;
     }
 }
 @media screen and (max-width: 480px) {
